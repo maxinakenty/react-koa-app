@@ -4,14 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node app/server.js",
-    "dev": "nodemon --exec 'yarn lint && yarn start'",
-    "lint": "eslint app",
-    "lint:fix": "eslint --fix app"
+    "start": "nodemon app/server.js --exec babel-node"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "dotenv": "^5.0.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",

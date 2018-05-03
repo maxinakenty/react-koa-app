@@ -1,4 +1,4 @@
-module.exports = () => async (ctx, next) => {
+const errorHandler = () => async (ctx, next) => {
   try {
     await next();
   } catch ({ status = 500, message = 'Server Error', name, errors }) {
@@ -18,3 +18,5 @@ module.exports = () => async (ctx, next) => {
     }
   }
 };
+
+export default errorHandler;

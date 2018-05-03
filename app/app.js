@@ -1,11 +1,11 @@
-const Koa = require('koa');
-const { connectorsInit } = require('./connectors');
-const initHandlers = require('./handlers');
-const modules = require('./modules');
+import Koa from 'koa';
+import connectorsInit from './connectors';
+import initHandlers from './handlers';
+import modules from './modules';
 
 connectorsInit();
 const app = new Koa();
 initHandlers(app);
 app.use(modules);
 
-module.exports = app;
+export default app;

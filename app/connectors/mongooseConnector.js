@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const server = require('../server');
+import mongoose from 'mongoose';
+
 mongoose.Promise = Promise;
 
 const mongooseConnector = mongoUri => {
@@ -10,4 +10,4 @@ const mongooseConnector = mongoUri => {
   });
 };
 
-module.exports = mongooseConnector;
+export default mongooseConnector;

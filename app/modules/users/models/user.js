@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const uniqueValidator = require('mongoose-unique-validator');
+import mongoose, { Schema } from 'mongoose';
+import bcrypt from 'bcrypt';
+import uniqueValidator from 'mongoose-unique-validator';
 
 mongoose.plugin(uniqueValidator);
 
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
   {
     email: {
       type: String,
@@ -56,8 +56,7 @@ UserSchema.pre('save', next => {
 UserSchema.methods.comparePasswords = password =>
   bcrypt.compareSync(password, this.password);
 
-UserSchema.static.findOneWithPublicFields = (params, cb) => {
-  return this.findOne(params, cb).select({ password: 0, _id: 0, __v: 0 });
-};
+UserSchema.static.findOneWithPublicFields = (params, cb) =>
+  this.findOne(params, cb).select({ password: 0, _id: 0, __v: 0 });
 
 module.exports = mongoose.model('user', UserSchema);

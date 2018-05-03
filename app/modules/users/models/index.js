@@ -1,5 +1,1 @@
-const User = require('./user');
-
-module.exports = {
-  User,
-};
+import { default as User } from './user';

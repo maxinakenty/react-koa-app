@@ -10,6 +10,7 @@
     "node": true
   },
   "rules": {
+    "import/no-named-default": 0,
     "import/no-extraneous-dependencies": 0
   }
 }

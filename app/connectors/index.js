@@ -1,11 +1,16 @@
-const { MONGO_URI } = require('../config');
-const mongooseConnector = require('./mongooseConnector');
+import { MONGO_URI } from '../config';
+import mongooseConnector from './mongooseConnector';
+import server from '../server';
 
-const connectorsInit = () => {
-  mongooseConnector(MONGO_URI);
+const connectorsInit = async () => {
+  try {
+    await mongooseConnector(MONGO_URI);
+  } catch (err) {
+    server.close();
+    console.error(err);
+  }
 };
 
-module.exports = {
-  mongooseConnector,
-  connectorsInit,
-};
+export { mongooseConnector };
+
+export default connectorsInit;

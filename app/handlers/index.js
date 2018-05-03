@@ -1,7 +1,7 @@
-const bodyParser = require('koa-bodyparser');
-const logger = require('koa-logger');
-const error = require('./error');
-const { IS_DEVELOPMENT } = require('../utils/env');
+import bodyParser from 'koa-bodyparser';
+import logger from 'koa-logger';
+import error from './error';
+import { IS_DEVELOPMENT } from '../utils/env';
 
 const initHandlers = app => {
   if (IS_DEVELOPMENT) {
@@ -12,4 +12,4 @@ const initHandlers = app => {
   app.use(bodyParser());
 };
 
-module.exports = initHandlers;
+export default initHandlers;
